@@ -1,0 +1,16 @@
+---
+interface Props {
+  href: string;
+  class?: string;
+}
+
+const { href, class: className = '' } = Astro.props;
+const isExternal = !href.startsWith('/') && !href.startsWith('#');
+---
+
+<a
+  href={href}
+  class={`text-primary hover:underline transition-colors whitespace-nowrap ${className}`}
+  style="font-family: 'DM Mono', monospace; font-size: 0.75rem; letter-spacing: 0.08em;"
+  {...(isExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+><slot />{isExternal ? ' ↗' : ' →'}</a>

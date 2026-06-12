@@ -1,0 +1,28 @@
+---
+interface Props {
+  href?: string;
+  variant?: 'ghost' | 'solid';
+  class?: string;
+  type?: 'button' | 'submit' | 'reset';
+}
+
+const { href, variant = 'ghost', class: className = '', type = 'button' } = Astro.props;
+
+const base = 'inline-flex items-center transition-colors uppercase cursor-pointer';
+const variants = {
+  ghost: 'border border-primary text-primary hover:bg-primary hover:text-primary-foreground',
+  solid: 'bg-primary text-primary-foreground hover:opacity-90',
+};
+
+const classes = `${base} ${variants[variant]} ${className}`;
+---
+
+{href ? (
+  <a href={href} class={classes}>
+    <slot />
+  </a>
+) : (
+  <button type={type} class={classes}>
+    <slot />
+  </button>
+)}

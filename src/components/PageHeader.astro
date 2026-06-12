@@ -1,0 +1,24 @@
+---
+import Link from './Link.astro';
+
+interface Props {
+  title: string;
+  link?: { href: string; label: string };
+}
+
+const { title, link } = Astro.props;
+---
+
+<div class="mb-20" style="animation: fade-up 0.5s ease-out both;">
+  {link && (
+    <div class="mb-4">
+      <Link href={link.href} class="uppercase">{link.label}</Link>
+    </div>
+  )}
+  <h1
+    class="text-foreground uppercase leading-none"
+    style="font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: clamp(3rem, 10vw, 7rem); letter-spacing: -0.01em;"
+  >
+    {title}
+  </h1>
+</div>

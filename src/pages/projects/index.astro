@@ -1,0 +1,89 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ContactSection from '../../components/ContactSection.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import { projects } from '../../data/projects';
+---
+
+<Layout title="Projects — Portfolio">
+  <div class="max-w-7xl mx-auto px-6 py-16">
+    <PageHeader
+      title="PROJECTS"
+      link={{ href: 'https://github.com/dsvalerian', label: 'github.com/dsvalerian' }}
+    />
+
+    <!-- Project list -->
+    <div class="border-t border-border">
+      {projects.map((project, i) => (
+        <div
+          class="border-b border-border"
+          style={`animation: fade-up 0.4s ease-out both; animation-delay: ${i * 0.07}s;`}
+        >
+          <a
+            href={`/projects/${project.slug}`}
+            class="group block py-10 px-2 -mx-2 transition-colors"
+          >
+            <div class="flex flex-col lg:flex-row lg:items-start gap-6">
+              <!-- Number + name -->
+              <div class="flex items-start gap-6 flex-1">
+                <span
+                  class="text-muted-foreground mt-2 w-8 shrink-0"
+                  style="font-family: 'DM Mono', monospace; font-size: 0.75rem;"
+                >
+                  {project.number}
+                </span>
+                <div class="flex-1">
+                  <div class="flex items-baseline gap-4 mb-3">
+                    <h2
+                      class="text-foreground group-hover:text-primary uppercase leading-none transition-colors"
+                      style="font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: clamp(2rem, 5vw, 3.5rem); letter-spacing: -0.01em;"
+                    >
+                      {project.name}
+                    </h2>
+                    <span
+                      class="text-muted-foreground"
+                      style="font-family: 'DM Mono', monospace; font-size: 0.7rem;"
+                    >
+                      {project.year}
+                    </span>
+                  </div>
+                  <p
+                    class="text-muted-foreground max-w-xl"
+                    style="font-size: 0.9rem; line-height: 1.6;"
+                  >
+                    {project.brief}
+                  </p>
+                </div>
+              </div>
+
+              <!-- Tags -->
+              <div class="flex flex-wrap gap-2 lg:items-start lg:justify-end lg:w-64 shrink-0 lg:ml-8">
+                {project.tags.map((tag) => (
+                  <span
+                    class="border border-border text-muted-foreground px-2 py-0.5"
+                    style="font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.05em;"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <!-- Hover reveal -->
+            <div class="overflow-hidden transition-all duration-300 max-h-0 opacity-0 group-hover:max-h-20 group-hover:opacity-100 group-hover:mt-6">
+              <div class="flex items-center gap-4 ml-14">
+                <span
+                  style="color: var(--primary); font-family: 'DM Mono', monospace; font-size: 0.7rem;"
+                >
+                  READ CASE STUDY →
+                </span>
+              </div>
+            </div>
+          </a>
+        </div>
+      ))}
+    </div>
+
+    <ContactSection />
+  </div>
+</Layout>

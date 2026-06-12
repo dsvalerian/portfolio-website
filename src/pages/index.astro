@@ -1,11 +1,233 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
+import ContactSection from "../components/ContactSection.astro";
+import Button from "../components/Button.astro";
+import Link from "../components/Link.astro";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const ticker = [
+	"PHOTOGRAPHER",
+	"DJ",
+	"PROBLEM SOLVER",
+	"FREELANCER",
+	"MUSIC PRODUCER",
+	"HUSBAND",
+	"COFFEE GEEK",
+	"HOUSE MUSIC ENJOYER",
+	"GAME DEVELOPER",
+];
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="Portfolio">
+	<div>
+		<!-- Hero -->
+		<section class="min-h-[calc(100vh-3.5rem)] flex flex-col justify-between px-6 pt-16 pb-0 max-w-7xl mx-auto">
+			<div style="animation: fade-up 0.6s ease-out both;">
+				<h1
+					class="text-foreground leading-none uppercase"
+					style="font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: clamp(4rem, 14vw, 12rem); letter-spacing: -0.02em;"
+				>
+					SOFTWARE
+					<br />
+					<span style="color: var(--primary);">DEVELOPER</span>
+				</h1>
+
+				<p
+					class="text-muted-foreground uppercase"
+					style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: clamp(1.5rem, 3vw, 2.5rem); letter-spacing: 0.04em; margin-top: 0.25em;"
+				>
+					AND...
+				</p>
+
+				<!-- Scrolling ticker -->
+				<div class="mt-6 border-t border-border overflow-hidden py-4">
+					<div
+						class="flex gap-12 whitespace-nowrap"
+						style="animation: ticker 30s linear infinite; width: max-content;"
+					>
+						{
+							ticker.map((item, i) => (
+								<span
+									class="text-muted-foreground"
+									style="font-family: 'DM Mono', monospace; font-size: 0.7rem; letter-spacing: 0.15em;"
+								>
+									{item}
+									<span style="color: var(--primary); margin-left: 3rem;">—</span>
+								</span>
+							))
+						}
+					</div>
+				</div>
+
+				<div class="flex flex-col md:flex-row md:items-start justify-between gap-8 mt-12">
+					<p
+						class="text-muted-foreground max-w-md"
+						style="font-family: 'DM Sans', sans-serif; font-size: 1rem; line-height: 1.6;"
+					>
+						Six years building backend systems in fintech — Java, Spring Boot, AWS. I recently started doing
+						freelance projects on the side, and they've made clear what I want more of: work where I own
+						more of the picture and stay close to the people using it.
+					</p>
+					<div
+						class="text-muted-foreground"
+						style="font-family: 'DM Mono', monospace; font-size: 0.7rem; letter-spacing: 0.08em;"
+					>
+						BASED IN
+						<br />
+						<span class="text-foreground">CHICAGO, IL</span>
+					</div>
+				</div>
+			</div>
+
+			<div class="pb-16"></div>
+		</section>
+
+		<!-- Projects CTA -->
+		<section class="max-w-7xl mx-auto px-6" style="animation: fade-up 0.5s ease-out 0.2s both;">
+			<Button href="/projects" class="gap-4 px-8 py-5">
+				<span
+					style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.3rem; letter-spacing: 0.06em;"
+				>
+					VIEW ALL PROJECTS
+				</span>
+				<span style="font-family: 'DM Mono', monospace; font-size: 0.9rem;">→</span>
+			</Button>
+		</section>
+
+		<!-- About / Other Interests -->
+		<section class="max-w-7xl mx-auto px-6 mt-32">
+			<div class="grid md:grid-cols-2 gap-16">
+				<!-- About -->
+				<div>
+					<h2
+						class="text-foreground uppercase mb-8 border-b border-border pb-4"
+						style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.5rem; letter-spacing: 0.08em;"
+					>
+						ABOUT
+					</h2>
+					<div class="space-y-4 text-muted-foreground" style="font-size: 0.9rem; line-height: 1.75;">
+						<p>
+							Based in Chicago since 2020, my professional background is backend engineering in fintech —
+							Java, Spring Boot, lately a lot of AWS, REST APIs, data pipelines, integrations, the whole
+							shebang. Over the last year I've had more room to actually shape things at work: from
+							designing the backend of an analytics web app, to integrating my company's analytics data
+							transformation functionality into a new ingestion pipeline, to sitting on cross-team
+							meetings planning the architecture of an integrated client onboarding platform. That kind of
+							ownership is relatively new for me, but I can confidently say it's been the most interesting
+							professional work I've done yet.
+						</p>
+						<p>
+							On the side I've been building for people I know — a site for a DJ collective's open-deck
+							signups and events, a customizeable portfolio site for a DJ, my own wedding website. Nothing
+							huge, but I got to watch real people use them. That's important to me, and I want more of
+							that. I'm open to full-time roles, freelance, and contract work at any scale. What I care
+							about is ownership and building something people actually use — products that help people
+							get things done, creative tools, anything where I can see the impact.
+						</p>
+					</div>
+				</div>
+
+				<!-- Other interests -->
+				<div>
+					<h2
+						class="text-foreground uppercase mb-8 border-b border-border pb-4"
+						style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.5rem; letter-spacing: 0.08em;"
+					>
+						OUTSIDE WORK
+					</h2>
+					<div class="space-y-6">
+						<div class="flex gap-6">
+							<span
+								class="shrink-0 mt-0.5"
+								style="color: var(--primary); font-family: 'DM Mono', monospace; font-size: 0.7rem;"
+							>
+								01
+							</span>
+							<div>
+								<p
+									class="text-foreground mb-1 uppercase"
+									style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1rem; letter-spacing: 0.05em;"
+								>
+									MUSIC PRODUCTION
+								</p>
+								<p class="text-muted-foreground" style="font-size: 0.875rem; line-height: 1.6;">
+									I just recently started releasing music last year. House music — jazzy, bouncy,
+									jackin', dub, I have a lot of influences. If that sounds like your vibe, check out
+									my project Grid District.
+									<Link href="/music" class="ml-1">MORE INFO</Link>
+								</p>
+							</div>
+						</div>
+
+						<div class="flex gap-6">
+							<span
+								class="shrink-0 mt-0.5"
+								style="color: var(--primary); font-family: 'DM Mono', monospace; font-size: 0.7rem;"
+							>
+								02
+							</span>
+							<div>
+								<p
+									class="text-foreground mb-1 uppercase"
+									style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1rem; letter-spacing: 0.05em;"
+								>
+									DJING
+								</p>
+								<p class="text-muted-foreground" style="font-size: 0.875rem; line-height: 1.6;">
+									Something I picked up last year to get a bit closer to the local music scene. I've
+									done a couple tiny shows at a local bar and coffee shop, but it's mostly a way for
+									me to vibe with friends and more actively listen to my favorite tunes.
+								</p>
+							</div>
+						</div>
+
+						<div class="flex gap-6">
+							<span
+								class="shrink-0 mt-0.5"
+								style="color: var(--primary); font-family: 'DM Mono', monospace; font-size: 0.7rem;"
+							>
+								03
+							</span>
+							<div>
+								<p
+									class="text-foreground mb-1 uppercase"
+									style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1rem; letter-spacing: 0.05em;"
+								>
+									PHOTOGRAPHY
+								</p>
+								<p class="text-muted-foreground" style="font-size: 0.875rem; line-height: 1.6;">
+									I like to walk around and document my surroundings, be it architecture, people,
+									spaces, or landscapes. Beynod serving as a relaxing vehicle for getting out the
+									house and being more in-tune with my neighborhood, I've also covered a couple music
+									shows and done portraits for friends.
+								</p>
+							</div>
+						</div>
+
+						<div class="flex gap-6">
+							<span
+								class="shrink-0 mt-0.5"
+								style="color: var(--primary); font-family: 'DM Mono', monospace; font-size: 0.7rem;"
+							>
+								04
+							</span>
+							<div>
+								<p
+									class="text-foreground mb-1 uppercase"
+									style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1rem; letter-spacing: 0.05em;"
+								>
+									BIKING
+								</p>
+								<p class="text-muted-foreground" style="font-size: 0.875rem; line-height: 1.6;">
+									I got into biking a few years ago as a fun way to get some exercise in. I also enjoy
+									tinkering and building up my 90's steel hybrid gravel conversion.
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<ContactSection />
+	</div>
 </Layout>
