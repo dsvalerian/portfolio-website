@@ -33,8 +33,8 @@ const isMusicActive = pathname === "/music";
 			<div class="max-w-7xl mx-auto px-6 h-14 flex items-center justify-between">
 				<a
 					href="/"
-					class="text-foreground hover:text-primary transition-colors"
-					style="font-family: 'DM Mono', monospace; font-size: 0.8rem; letter-spacing: 0.08em;"
+					class="text-foreground hover:text-primary transition-colors mono-ui"
+					style="font-size: 0.8rem; letter-spacing: 0.08em;"
 				>
 					[ DMITRI_SALOV ]
 				</a>
@@ -42,23 +42,23 @@ const isMusicActive = pathname === "/music";
 				<div class="flex items-center gap-8">
 					<a
 						href="/projects"
-						class={`transition-colors tracking-widest uppercase ${isWorkActive ? "text-primary" : "text-muted-foreground hover:text-foreground"}`}
-						style="font-family: 'DM Mono', monospace; font-size: 0.7rem;"
+						class={`transition-colors tracking-widest uppercase mono-ui ${isWorkActive ? "text-primary" : "text-muted-foreground hover:text-foreground"}`}
+						style="font-size: 0.7rem;"
 					>
 						WORK
 					</a>
 					<a
 						href="/music"
-						class={`transition-colors tracking-widest uppercase ${isMusicActive ? "text-primary" : "text-muted-foreground hover:text-foreground"}`}
-						style="font-family: 'DM Mono', monospace; font-size: 0.7rem;"
+						class={`transition-colors tracking-widest uppercase mono-ui ${isMusicActive ? "text-primary" : "text-muted-foreground hover:text-foreground"}`}
+						style="font-size: 0.7rem;"
 					>
 						MUSIC
 					</a>
 					<a
 						id="contact-nav-btn"
 						href="/#contact"
-						class="border border-primary text-primary px-3 py-1 hover:bg-primary hover:text-primary-foreground transition-colors"
-						style="font-family: 'DM Mono', monospace; font-size: 0.7rem; letter-spacing: 0.1em;"
+						class="border border-primary text-primary px-3 py-1 hover:bg-primary hover:text-primary-foreground transition-colors mono-ui"
+						style="font-size: 0.7rem; letter-spacing: 0.1em;"
 					>
 						CONTACT
 					</a>
@@ -72,13 +72,13 @@ const isMusicActive = pathname === "/music";
 
 		<footer class="border-t border-border mt-32">
 			<div class="max-w-7xl mx-auto px-6 py-8 flex items-center justify-between">
-				<span style="font-family: 'DM Mono', monospace; font-size: 0.7rem;" class="text-muted-foreground">
+				<span class="text-muted-foreground mono-ui" style="font-size: 0.7rem;">
 					© COPYRIGHT 2026
 				</span>
 				<a
 					href="/privacy"
-					class="text-muted-foreground hover:text-foreground transition-colors"
-					style="font-family: 'DM Mono', monospace; font-size: 0.7rem;"
+					class="text-muted-foreground hover:text-foreground transition-colors mono-ui"
+					style="font-size: 0.7rem;"
 				>
 					PRIVACY POLICY
 				</a>

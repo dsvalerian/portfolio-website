@@ -27,22 +27,22 @@ import { projects } from '../../data/projects';
               <!-- Number + name -->
               <div class="flex items-start gap-6 flex-1">
                 <span
-                  class="text-muted-foreground mt-2 w-8 shrink-0"
-                  style="font-family: 'DM Mono', monospace; font-size: 0.75rem;"
+                  class="text-muted-foreground mt-2 w-8 shrink-0 mono-ui"
+                  style="font-size: 0.75rem;"
                 >
                   {project.number}
                 </span>
                 <div class="flex-1">
                   <div class="flex items-baseline gap-4 mb-3">
                     <h2
-                      class="text-foreground group-hover:text-primary uppercase leading-none transition-colors"
-                      style="font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: clamp(2rem, 5vw, 3.5rem); letter-spacing: -0.01em;"
+                      class="text-foreground group-hover:text-primary uppercase leading-none transition-colors display-heading"
+                      style="font-size: clamp(2rem, 5vw, 3.5rem);"
                     >
                       {project.name}
                     </h2>
                     <span
-                      class="text-muted-foreground"
-                      style="font-family: 'DM Mono', monospace; font-size: 0.7rem;"
+                      class="text-muted-foreground mono-ui"
+                      style="font-size: 0.7rem;"
                     >
                       {project.year}
                     </span>
@@ -60,8 +60,8 @@ import { projects } from '../../data/projects';
               <div class="flex flex-wrap gap-2 lg:items-start lg:justify-end lg:w-64 shrink-0 lg:ml-8">
                 {project.tags.map((tag) => (
                   <span
-                    class="border border-border text-muted-foreground px-2 py-0.5"
-                    style="font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.05em;"
+                    class="border border-border text-muted-foreground px-2 py-0.5 mono-ui"
+                    style="font-size: 0.65rem; letter-spacing: 0.05em;"
                   >
                     {tag}
                   </span>
@@ -72,10 +72,8 @@ import { projects } from '../../data/projects';
             <!-- Hover reveal -->
             <div class="overflow-hidden transition-all duration-300 max-h-0 opacity-0 group-hover:max-h-20 group-hover:opacity-100 group-hover:mt-6">
               <div class="flex items-center gap-4 ml-14">
-                <span
-                  style="color: var(--primary); font-family: 'DM Mono', monospace; font-size: 0.7rem;"
-                >
-                CASE STUDY →
+                <span class="mono-ui" style="color: var(--primary); font-size: 0.7rem;">
+                  CASE STUDY →
                 </span>
               </div>
             </div>
@@ -84,12 +82,12 @@ import { projects } from '../../data/projects';
       ))}
     </div>
 
-    <div class="mt-32">
+    <div class="mt-16">
       <Button href="/#contact" class="gap-4 px-8 py-5">
-        <span style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.3rem; letter-spacing: 0.06em;">
+        <span class="display-medium" style="font-size: 1.3rem; letter-spacing: 0.06em;">
           GET IN TOUCH
         </span>
-        <span style="font-family: 'DM Mono', monospace; font-size: 0.9rem;">→</span>
+        <span class="mono-ui" style="font-size: 0.9rem;">→</span>
       </Button>
     </div>
   </div>

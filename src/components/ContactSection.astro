@@ -7,75 +7,123 @@ import Link from "./Link.astro";
 		<div class="grid md:grid-cols-2 gap-16 items-start">
 			<div>
 				<h2
-					class="text-foreground uppercase leading-none mb-6"
-					style="font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: clamp(2.5rem, 6vw, 4.5rem); letter-spacing: -0.01em;"
+					class="text-foreground uppercase leading-none mb-6 display-heading"
+					style="font-size: clamp(2.5rem, 6vw, 4.5rem);"
 				>
 					I'D LOVE TO<br /><span style="color: var(--primary);">WORK WITH YOU.</span>
 				</h2>
-				<p class="text-muted-foreground" style="font-size: 0.9rem; line-height: 1.75; max-width: 36ch;">
-					I'm open to full-time, part-time, contract, or freelance work. If you need something built or made,
-					I'd love to hear about it.
-				</p>
-				<p class="text-muted-foreground mt-4" style="font-size: 0.9rem; line-height: 1.75; max-width: 36ch;">
-					Alternatively, if you're interested in collabing on music, doing a DJ gig together, or just just
-					getting together and spinning for funsies — let's get in touch.
-				</p>
+				<div class="space-y-4 text-muted-foreground" style="font-size: 0.9rem; line-height: 1.75; max-width: 36ch;">
+					<p>
+						I'm open to full-time, part-time, contract, or freelance work. If you need something built or made,
+						I'd love to hear about it.
+					</p>
+					<p>
+						Alternatively, if you're interested in collabing on music, doing a DJ gig together, or just
+						getting together and spinning for funsies — let's get in touch.
+					</p>
+				</div>
 			</div>
 
-			<form action="https://formsubmit.co/your@email.com" method="POST" class="space-y-4">
-				<input type="hidden" name="_subject" value="Portfolio contact" />
-				<input type="hidden" name="_captcha" value="false" />
-				<input type="hidden" name="_next" value="https://yoursite.com/" />
+			<div>
+				<form id="contact-form" class="space-y-4">
+					<div>
+						<label
+							class="text-muted-foreground block mb-2 mono-ui"
+							style="font-size: 0.65rem; letter-spacing: 0.1em;"
+							>YOUR NAME</label
+						>
+						<input
+							type="text"
+							name="name"
+							required
+							class="w-full bg-card border border-border text-foreground px-4 py-3 focus:outline-none focus:border-primary transition-colors"
+							style="font-family: 'DM Sans', sans-serif; font-size: 0.9rem;"
+						/>
+					</div>
+					<div>
+						<label
+							class="text-muted-foreground block mb-2 mono-ui"
+							style="font-size: 0.65rem; letter-spacing: 0.1em;"
+							>YOUR EMAIL</label
+						>
+						<input
+							type="email"
+							name="email"
+							required
+							class="w-full bg-card border border-border text-foreground px-4 py-3 focus:outline-none focus:border-primary transition-colors"
+							style="font-family: 'DM Sans', sans-serif; font-size: 0.9rem;"
+						/>
+					</div>
+					<div>
+						<label
+							class="text-muted-foreground block mb-2 mono-ui"
+							style="font-size: 0.65rem; letter-spacing: 0.1em;"
+							>MESSAGE</label
+						>
+						<textarea
+							name="message"
+							required
+							rows="5"
+							class="w-full bg-card border border-border text-foreground px-4 py-3 focus:outline-none focus:border-primary transition-colors resize-none"
+							style="font-family: 'DM Sans', sans-serif; font-size: 0.9rem;"></textarea>
+					</div>
+					<button
+						type="submit"
+						id="contact-submit"
+						class="w-full bg-primary text-primary-foreground py-3 uppercase hover:opacity-90 transition-opacity display-medium"
+						style="font-size: 1rem; letter-spacing: 0.1em;"
+					>
+						SEND MESSAGE
+					</button>
+				</form>
 
-				<div>
-					<label
-						class="text-muted-foreground block mb-2"
-						style="font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.1em;"
-						>YOUR NAME</label
-					>
-					<input
-						type="text"
-						name="name"
-						required
-						class="w-full bg-card border border-border text-foreground px-4 py-3 focus:outline-none focus:border-primary transition-colors"
-						style="font-family: 'DM Sans', sans-serif; font-size: 0.9rem;"
-					/>
+				<div id="contact-success" class="hidden border border-primary px-6 py-8">
+					<p class="text-primary mono-ui" style="font-size: 0.75rem; letter-spacing: 0.08em;">
+						MESSAGE SENT — I'LL BE IN TOUCH.
+					</p>
 				</div>
-				<div>
-					<label
-						class="text-muted-foreground block mb-2"
-						style="font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.1em;"
-						>YOUR EMAIL</label
-					>
-					<input
-						type="email"
-						name="email"
-						required
-						class="w-full bg-card border border-border text-foreground px-4 py-3 focus:outline-none focus:border-primary transition-colors"
-						style="font-family: 'DM Sans', sans-serif; font-size: 0.9rem;"
-					/>
+
+				<div id="contact-error" class="hidden border border-border px-6 py-4 mt-4">
+					<p class="text-muted-foreground mono-ui" style="font-size: 0.75rem; letter-spacing: 0.08em;">
+						SOMETHING WENT WRONG — TRY EMAILING ME DIRECTLY.
+					</p>
 				</div>
-				<div>
-					<label
-						class="text-muted-foreground block mb-2"
-						style="font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.1em;"
-						>MESSAGE</label
-					>
-					<textarea
-						name="message"
-						required
-						rows="5"
-						class="w-full bg-card border border-border text-foreground px-4 py-3 focus:outline-none focus:border-primary transition-colors resize-none"
-						style="font-family: 'DM Sans', sans-serif; font-size: 0.9rem;"></textarea>
-				</div>
-				<button
-					type="submit"
-					class="w-full bg-primary text-primary-foreground py-3 uppercase hover:opacity-90 transition-opacity"
-					style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1rem; letter-spacing: 0.1em;"
-				>
-					SEND MESSAGE
-				</button>
-			</form>
+			</div>
 		</div>
 	</div>
 </section>
+
+<script>
+const form = document.getElementById('contact-form') as HTMLFormElement;
+const submit = document.getElementById('contact-submit') as HTMLButtonElement;
+const success = document.getElementById('contact-success')!;
+const error = document.getElementById('contact-error')!;
+
+form.addEventListener('submit', async (e) => {
+	e.preventDefault();
+	submit.disabled = true;
+	submit.textContent = 'SENDING...';
+
+	const data = new FormData(form);
+	data.append('_captcha', 'false');
+
+	try {
+		const res = await fetch('https://formsubmit.co/ajax/dmitrisalov98+portfolio@gmail.com', {
+			method: 'POST',
+			headers: { Accept: 'application/json' },
+			body: data,
+		});
+
+		if (res.ok) {
+			form.classList.add('hidden');
+			success.classList.remove('hidden');
+		} else {
+			throw new Error();
+		}
+	} catch {
+		error.classList.remove('hidden');
+		submit.disabled = false;
+		submit.textContent = 'SEND MESSAGE';
+	}
+});
+</script>

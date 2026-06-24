@@ -23,8 +23,8 @@ const ticker = [
 		<section class="px-6 pt-16 pb-16 max-w-7xl mx-auto">
 			<div style="animation: fade-up 0.6s ease-out both;">
 				<h1
-					class="text-foreground leading-none uppercase"
-					style="font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: clamp(4rem, 14vw, 12rem); letter-spacing: -0.02em;"
+					class="text-foreground leading-none uppercase display-heading"
+					style="font-size: clamp(4rem, 14vw, 12rem); letter-spacing: -0.02em;"
 				>
 					SOFTWARE
 					<br />
@@ -32,8 +32,8 @@ const ticker = [
 				</h1>
 
 				<p
-					class="text-muted-foreground uppercase"
-					style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: clamp(1.5rem, 3vw, 2.5rem); letter-spacing: 0.04em; margin-top: 0.25em;"
+					class="text-muted-foreground uppercase display-medium"
+					style="font-size: clamp(1.5rem, 3vw, 2.5rem); letter-spacing: 0.04em; margin-top: 0.25em;"
 				>
 					AND...
 				</p>
@@ -45,10 +45,10 @@ const ticker = [
 						style="animation: ticker 30s linear infinite; width: max-content;"
 					>
 						{
-							ticker.map((item, i) => (
+							ticker.map((item) => (
 								<span
-									class="text-muted-foreground"
-									style="font-family: 'DM Mono', monospace; font-size: 0.7rem; letter-spacing: 0.15em;"
+									class="text-muted-foreground mono-ui"
+									style="font-size: 0.7rem; letter-spacing: 0.15em;"
 								>
 									{item}
 									<span style="color: var(--primary); margin-left: 3rem;">—</span>
@@ -61,15 +61,15 @@ const ticker = [
 				<div class="flex flex-col md:flex-row md:items-start justify-between gap-8 mt-12">
 					<p
 						class="text-muted-foreground max-w-md"
-						style="font-family: 'DM Sans', sans-serif; font-size: 1rem; line-height: 1.6;"
+						style="font-size: 1rem; line-height: 1.6;"
 					>
 						Six years building backend systems in fintech — Java, Spring Boot, AWS. I recently started doing
 						freelance projects on the side, and they've made clear what I want more of: work where I own
 						more of the picture and stay close to the people using it.
 					</p>
 					<div
-						class="text-muted-foreground"
-						style="font-family: 'DM Mono', monospace; font-size: 0.7rem; letter-spacing: 0.08em;"
+						class="text-muted-foreground mono-ui"
+						style="font-size: 0.7rem; letter-spacing: 0.08em;"
 					>
 						BASED IN
 						<br />
@@ -83,12 +83,10 @@ const ticker = [
 		<!-- Projects CTA -->
 		<section class="max-w-7xl mx-auto px-6" style="animation: fade-up 0.5s ease-out 0.2s both;">
 			<Button href="/projects" class="gap-4 px-8 py-5">
-				<span
-					style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.3rem; letter-spacing: 0.06em;"
-				>
+				<span class="display-medium" style="font-size: 1.3rem; letter-spacing: 0.06em;">
 					VIEW ALL PROJECTS
 				</span>
-				<span style="font-family: 'DM Mono', monospace; font-size: 0.9rem;">→</span>
+				<span class="mono-ui" style="font-size: 0.9rem;">→</span>
 			</Button>
 		</section>
 
@@ -98,16 +96,16 @@ const ticker = [
 				<!-- About -->
 				<div>
 					<h2
-						class="text-foreground uppercase mb-8 border-b border-border pb-4"
-						style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.5rem; letter-spacing: 0.08em;"
+						class="text-foreground uppercase mb-8 border-b border-border pb-4 display-medium"
+						style="font-size: 1.5rem; letter-spacing: 0.08em;"
 					>
 						ABOUT
 					</h2>
 					<div class="space-y-6">
 						<div class="flex gap-6">
 							<span
-								class="text-muted-foreground shrink-0 mt-0.5"
-								style="font-family: 'DM Mono', monospace; font-size: 0.7rem;">01</span
+								class="text-muted-foreground shrink-0 mt-0.5 mono-ui"
+								style="font-size: 0.7rem;">01</span
 							>
 							<p class="text-muted-foreground" style="font-size: 0.875rem; line-height: 1.6;">
 								Based in Chicago since 2020, my professional background is backend engineering in
@@ -120,8 +118,8 @@ const ticker = [
 						</div>
 						<div class="flex gap-6">
 							<span
-								class="text-muted-foreground shrink-0 mt-0.5"
-								style="font-family: 'DM Mono', monospace; font-size: 0.7rem;">02</span
+								class="text-muted-foreground shrink-0 mt-0.5 mono-ui"
+								style="font-size: 0.7rem;">02</span
 							>
 							<p class="text-muted-foreground" style="font-size: 0.875rem; line-height: 1.6;">
 								On the side I've been building for people I know — a site for a DJ collective's
@@ -137,16 +135,16 @@ const ticker = [
 				<!-- Other interests -->
 				<div>
 					<h2
-						class="text-foreground uppercase mb-8 border-b border-border pb-4"
-						style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.5rem; letter-spacing: 0.08em;"
+						class="text-foreground uppercase mb-8 border-b border-border pb-4 display-medium"
+						style="font-size: 1.5rem; letter-spacing: 0.08em;"
 					>
 						OUTSIDE WORK
 					</h2>
 					<div class="space-y-6">
 						<div class="flex gap-6">
 							<span
-								class="text-muted-foreground shrink-0 mt-0.5"
-								style="font-family: 'DM Mono', monospace; font-size: 0.7rem;">01</span
+								class="text-muted-foreground shrink-0 mt-0.5 mono-ui"
+								style="font-size: 0.7rem;">01</span
 							>
 							<p class="text-muted-foreground" style="font-size: 0.875rem; line-height: 1.6;">
 								I just recently started releasing music last year. House music — jazzy, bouncy, jackin',
@@ -156,8 +154,8 @@ const ticker = [
 						</div>
 						<div class="flex gap-6">
 							<span
-								class="text-muted-foreground shrink-0 mt-0.5"
-								style="font-family: 'DM Mono', monospace; font-size: 0.7rem;">02</span
+								class="text-muted-foreground shrink-0 mt-0.5 mono-ui"
+								style="font-size: 0.7rem;">02</span
 							>
 							<p class="text-muted-foreground" style="font-size: 0.875rem; line-height: 1.6;">
 								I picked up DJing to get a bit closer to the local music scene. I've done a couple shows
@@ -167,8 +165,8 @@ const ticker = [
 						</div>
 						<div class="flex gap-6">
 							<span
-								class="text-muted-foreground shrink-0 mt-0.5"
-								style="font-family: 'DM Mono', monospace; font-size: 0.7rem;">03</span
+								class="text-muted-foreground shrink-0 mt-0.5 mono-ui"
+								style="font-size: 0.7rem;">03</span
 							>
 							<p class="text-muted-foreground" style="font-size: 0.875rem; line-height: 1.6;">
 								I enjoy photography and like to walk around documenting my surroundings, be it
@@ -179,8 +177,8 @@ const ticker = [
 						</div>
 						<div class="flex gap-6">
 							<span
-								class="text-muted-foreground shrink-0 mt-0.5"
-								style="font-family: 'DM Mono', monospace; font-size: 0.7rem;">04</span
+								class="text-muted-foreground shrink-0 mt-0.5 mono-ui"
+								style="font-size: 0.7rem;">04</span
 							>
 							<p class="text-muted-foreground" style="font-size: 0.875rem; line-height: 1.6;">
 								I got into biking a few years ago as a fun way to get some exercise in. I also enjoy

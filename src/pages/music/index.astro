@@ -42,7 +42,7 @@ const releases = [
 
 			<!-- Bio -->
 			<div class="mb-20 max-w-2xl">
-				<div class="space-y-4 text-muted-foreground" style="font-size: 0.95rem; line-height: 1.8;">
+				<div class="space-y-4 text-muted-foreground body-text">
 					<p>
 						Music's always been part of my life — 13 years of piano growing up, then making beats in FL
 						Studio as a kid, hip hop beats in high school, techno experiments in college. After moving to Chicago
@@ -69,8 +69,8 @@ const releases = [
 			<!-- Releases -->
 			<div>
 				<p
-					class="text-muted-foreground uppercase border-b border-border pb-3 mb-8"
-					style="font-family: 'DM Mono', monospace; font-size: 0.7rem; letter-spacing: 0.1em;"
+					class="text-muted-foreground uppercase border-b border-border pb-3 mb-8 mono-ui"
+					style="font-size: 0.7rem; letter-spacing: 0.1em;"
 				>
 					RELEASES
 				</p>
@@ -98,27 +98,21 @@ const releases = [
 								<!-- Info -->
 								<div class="border-t border-border group-hover:border-primary p-4 transition-colors">
 									<h3
-										class="text-foreground group-hover:text-primary uppercase leading-tight transition-colors"
-										style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.1rem; letter-spacing: 0.04em;"
+										class="text-foreground group-hover:text-primary uppercase leading-tight transition-colors display-medium"
+										style="font-size: 1.1rem; letter-spacing: 0.04em;"
 									>
 										{r.title}
 									</h3>
 									<div class="flex items-center gap-3 mt-1">
-										<span
-											class="text-muted-foreground"
-											style="font-family: 'DM Mono', monospace; font-size: 0.65rem;"
-										>
+										<span class="text-muted-foreground mono-ui" style="font-size: 0.65rem;">
 											{r.year}
 										</span>
-										<span
-											class="text-muted-foreground"
-											style="font-family: 'DM Mono', monospace; font-size: 0.65rem;"
-										>
+										<span class="text-muted-foreground mono-ui" style="font-size: 0.65rem;">
 											{r.type}
 										</span>
 										<span
-											class="ml-auto text-muted-foreground group-hover:text-primary transition-colors"
-											style="font-family: 'DM Mono', monospace; font-size: 0.65rem;"
+											class="ml-auto text-muted-foreground group-hover:text-primary transition-colors mono-ui"
+											style="font-size: 0.65rem;"
 										>
 											LISTEN ↗
 										</span>
@@ -130,12 +124,12 @@ const releases = [
 				</div>
 			</div>
 
-			<div class="mt-32">
+			<div class="mt-16">
 				<Button href="/#contact" class="gap-4 px-8 py-5">
-					<span style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.3rem; letter-spacing: 0.06em;">
+					<span class="display-medium" style="font-size: 1.3rem; letter-spacing: 0.06em;">
 						GET IN TOUCH
 					</span>
-					<span style="font-family: 'DM Mono', monospace; font-size: 0.9rem;">→</span>
+					<span class="mono-ui" style="font-size: 0.9rem;">→</span>
 				</Button>
 			</div>
 		</div>

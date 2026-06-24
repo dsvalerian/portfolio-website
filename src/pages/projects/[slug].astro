@@ -1,5 +1,6 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import SectionLabel from "../../components/SectionLabel.astro";
 import { projects } from "../../data/projects";
 
 export function getStaticPaths() {
@@ -33,8 +34,8 @@ function parseLinks(text: string): string {
 		<div class="mb-12" style="animation: fade-in 0.3s ease-out both;">
 			<a
 				href="/projects"
-				class="text-muted-foreground hover:text-foreground transition-colors"
-				style="font-family: 'DM Mono', monospace; font-size: 0.7rem; letter-spacing: 0.1em;"
+				class="text-muted-foreground hover:text-foreground transition-colors mono-ui"
+				style="font-size: 0.7rem; letter-spacing: 0.1em;"
 			>
 				← ALL PROJECTS
 			</a>
@@ -43,20 +44,20 @@ function parseLinks(text: string): string {
 		<!-- Header -->
 		<div style="animation: fade-up 0.5s ease-out both;">
 			<span
-				class="text-muted-foreground block mb-3"
-				style="font-family: 'DM Mono', monospace; font-size: 0.7rem; letter-spacing: 0.08em;"
+				class="text-muted-foreground block mb-3 mono-ui"
+				style="font-size: 0.7rem; letter-spacing: 0.08em;"
 			>
 				{project.number} / {project.year}
 			</span>
 			<h1
-				class="text-foreground uppercase leading-none"
-				style="font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: clamp(3rem, 10vw, 6rem); letter-spacing: -0.01em;"
+				class="text-foreground uppercase leading-none display-heading"
+				style="font-size: clamp(3rem, 10vw, 6rem);"
 			>
 				{project.name}
 			</h1>
 			<p
-				class="text-muted-foreground mt-3 uppercase"
-				style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.3rem; letter-spacing: 0.02em;"
+				class="text-muted-foreground mt-3 uppercase display-medium"
+				style="font-size: 1.3rem; letter-spacing: 0.02em;"
 			>
 				{project.tagline}
 			</p>
@@ -67,8 +68,8 @@ function parseLinks(text: string): string {
 						{project.links.map(link => (
 							<a
 								href={link.url}
-								class="border border-primary text-primary px-5 py-2.5 hover:bg-primary hover:text-primary-foreground transition-colors"
-								style="font-family: 'DM Mono', monospace; font-size: 0.7rem; letter-spacing: 0.1em;"
+								class="border border-primary text-primary px-5 py-2.5 hover:bg-primary hover:text-primary-foreground transition-colors mono-ui"
+								style="font-size: 0.7rem; letter-spacing: 0.1em;"
 								target="_blank"
 								rel="noopener noreferrer"
 							>
@@ -84,8 +85,8 @@ function parseLinks(text: string): string {
 				{
 					project.tags.map(tag => (
 						<span
-							class="border border-border text-muted-foreground px-2 py-1"
-							style="font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.05em;"
+							class="border border-border text-muted-foreground px-2 py-1 mono-ui"
+							style="font-size: 0.65rem; letter-spacing: 0.05em;"
 						>
 							{tag}
 						</span>
@@ -94,107 +95,72 @@ function parseLinks(text: string): string {
 			</div>
 		</div>
 
-		<!-- TL;DR + Stack -->
-		<div style="animation: fade-up 0.5s ease-out 0.1s both;">
-			<div class="border-t border-border pt-10 mt-10">
-				<p
-					class="mb-6 uppercase"
-					style="color: var(--primary); font-family: 'DM Mono', monospace; font-size: 0.7rem; letter-spacing: 0.12em;"
-				>
-					TL;DR
-				</p>
-				<p
-					class="text-foreground mb-8"
-					style="font-size: 1.1rem; line-height: 1.7; max-width: 68ch; font-style: italic;"
-				>
-					{project.brief}
-				</p>
-			</div>
+		<!-- TL;DR -->
+		<div class="border-t border-border pt-10 mt-10" style="animation: fade-up 0.5s ease-out 0.1s both;">
+			<SectionLabel label="TL;DR" />
+			<p
+				class="text-foreground mb-8"
+				style="font-size: 1.1rem; line-height: 1.7; max-width: 68ch; font-style: italic;"
+			>
+				{project.brief}
+			</p>
 		</div>
 
 		<!-- Overview -->
-		<div style="animation: fade-up 0.5s ease-out 0.15s both;">
-			<div class="border-t border-border pt-10 mt-10">
-				<p
-					class="mb-6 uppercase"
-					style="color: var(--primary); font-family: 'DM Mono', monospace; font-size: 0.7rem; letter-spacing: 0.12em;"
-				>
-					OVERVIEW
-				</p>
-				<div class="space-y-5">
-					{
-						overviewParas.map(para => (
-							<p
-								class="text-muted-foreground"
-								style="font-size: 0.95rem; line-height: 1.8; max-width: 68ch;"
-								set:html={parseLinks(para)}
-							/>
-						))
-					}
-				</div>
+		<div class="border-t border-border pt-10 mt-10" style="animation: fade-up 0.5s ease-out 0.15s both;">
+			<SectionLabel label="OVERVIEW" />
+			<div class="space-y-5">
+				{
+					overviewParas.map(para => (
+						<p
+							class="text-muted-foreground body-text"
+							style="max-width: 68ch;"
+							set:html={parseLinks(para)}
+						/>
+					))
+				}
 			</div>
 		</div>
 
 		<!-- Problem -->
-		<div style="animation: fade-up 0.5s ease-out 0.2s both;">
-			<div class="border-t border-border pt-10 mt-10">
-				<p
-					class="mb-6 uppercase"
-					style="color: var(--primary); font-family: 'DM Mono', monospace; font-size: 0.7rem; letter-spacing: 0.12em;"
-				>
-					THE PROBLEM
-				</p>
-				<div class="space-y-5">
-					{
-						problemParas.map(para => (
-							<p
-								class="text-muted-foreground"
-								style="font-size: 0.95rem; line-height: 1.8; max-width: 68ch;"
-								set:html={parseLinks(para)}
-							/>
-						))
-					}
-				</div>
+		<div class="border-t border-border pt-10 mt-10" style="animation: fade-up 0.5s ease-out 0.2s both;">
+			<SectionLabel label="THE PROBLEM" />
+			<div class="space-y-5">
+				{
+					problemParas.map(para => (
+						<p
+							class="text-muted-foreground body-text"
+							style="max-width: 68ch;"
+							set:html={parseLinks(para)}
+						/>
+					))
+				}
 			</div>
 		</div>
 
 		<!-- Solution -->
-		<div style="animation: fade-up 0.5s ease-out 0.25s both;">
-			<div class="border-t border-border pt-10 mt-10">
-				<p
-					class="mb-6 uppercase"
-					style="color: var(--primary); font-family: 'DM Mono', monospace; font-size: 0.7rem; letter-spacing: 0.12em;"
-				>
-					THE SOLUTION
-				</p>
-				<div class="space-y-5">
-					{
-						solutionParas.map(para => (
-							<p
-								class="text-muted-foreground"
-								style="font-size: 0.95rem; line-height: 1.8; max-width: 68ch;"
-								set:html={parseLinks(para)}
-							/>
-						))
-					}
-				</div>
+		<div class="border-t border-border pt-10 mt-10" style="animation: fade-up 0.5s ease-out 0.25s both;">
+			<SectionLabel label="THE SOLUTION" />
+			<div class="space-y-5">
+				{
+					solutionParas.map(para => (
+						<p
+							class="text-muted-foreground body-text"
+							style="max-width: 68ch;"
+							set:html={parseLinks(para)}
+						/>
+					))
+				}
 			</div>
 		</div>
 
 		<!-- Outcome -->
-		<div style="animation: fade-up 0.5s ease-out 0.35s both;">
-			<div class="border-t border-border pt-10 mt-10">
-				<p
-					class="mb-6 uppercase"
-					style="color: var(--primary); font-family: 'DM Mono', monospace; font-size: 0.7rem; letter-spacing: 0.12em;"
-				>
-					OUTCOME
+		<div class="border-t border-border pt-10 mt-10" style="animation: fade-up 0.5s ease-out 0.35s both;">
+			<SectionLabel label="OUTCOME" />
+			<div class="border-l-2 pl-6" style="border-color: var(--primary);">
+				<p class="text-foreground body-text" style="max-width: 68ch;">
+					{project.outcome}
 				</p>
-				<div class="border-l-2 pl-6" style="border-color: var(--primary);">
-					<p class="text-foreground" style="font-size: 0.95rem; line-height: 1.8; max-width: 68ch;">
-						{project.outcome}
-					</p>
-				</div>
 			</div>
 		</div>
 
@@ -207,14 +173,14 @@ function parseLinks(text: string): string {
 						class="group flex flex-col gap-1 hover:text-primary transition-colors"
 					>
 						<span
-							class="text-muted-foreground"
-							style="font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.1em;"
+							class="text-muted-foreground mono-ui"
+							style="font-size: 0.65rem; letter-spacing: 0.1em;"
 						>
 							← PREVIOUS
 						</span>
 						<span
-							class="text-foreground group-hover:text-primary transition-colors uppercase"
-							style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.2rem; letter-spacing: 0.03em;"
+							class="text-foreground group-hover:text-primary transition-colors uppercase display-medium"
+							style="font-size: 1.2rem; letter-spacing: 0.03em;"
 						>
 							{prev.name}
 						</span>
@@ -231,14 +197,14 @@ function parseLinks(text: string): string {
 						class="group flex flex-col gap-1 items-end hover:text-primary transition-colors"
 					>
 						<span
-							class="text-muted-foreground"
-							style="font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.1em;"
+							class="text-muted-foreground mono-ui"
+							style="font-size: 0.65rem; letter-spacing: 0.1em;"
 						>
 							NEXT →
 						</span>
 						<span
-							class="text-foreground group-hover:text-primary transition-colors uppercase"
-							style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.2rem; letter-spacing: 0.03em;"
+							class="text-foreground group-hover:text-primary transition-colors uppercase display-medium"
+							style="font-size: 1.2rem; letter-spacing: 0.03em;"
 						>
 							{next.name}
 						</span>

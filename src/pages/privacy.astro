@@ -6,13 +6,13 @@ import Layout from "../layouts/Layout.astro";
 	<div class="max-w-7xl mx-auto px-6 py-16">
 		<div style="animation: fade-up 0.5s ease-out both;">
 			<h1
-				class="text-foreground uppercase leading-none mb-16"
-				style="font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: clamp(3rem, 10vw, 7rem); letter-spacing: -0.01em;"
+				class="text-foreground uppercase leading-none mb-16 display-heading"
+				style="font-size: clamp(3rem, 10vw, 7rem);"
 			>
 				PRIVACY POLICY
 			</h1>
 
-			<div class="max-w-2xl space-y-5 text-muted-foreground" style="font-size: 0.95rem; line-height: 1.8;">
+			<div class="max-w-2xl space-y-5 text-muted-foreground body-text">
 				<p>
 					The only personal information collected on this site is what you voluntarily submit through the
 					contact form: your name and email address. That information is used solely to respond to your
@@ -20,7 +20,8 @@ import Layout from "../layouts/Layout.astro";
 						href="https://formsubmit.co"
 						target="_blank"
 						rel="noopener noreferrer"
-						style="color: var(--primary); font-family: 'DM Mono', monospace; font-size: 0.75rem;"
+						class="mono-ui"
+						style="color: var(--primary); font-size: 0.75rem;"
 						>FormSubmit ↗</a
 					> and delivered directly to my inbox — nothing is stored on any server I control.
 				</p>
@@ -32,12 +33,13 @@ import Layout from "../layouts/Layout.astro";
 					Questions?
 					<a
 						href="/#contact"
-						style="color: var(--primary); font-family: 'DM Mono', monospace; font-size: 0.75rem;"
+						class="mono-ui"
+						style="color: var(--primary); font-size: 0.75rem;"
 						>CONTACT ME →</a
 					>.
 				</p>
 
-				<p class="pt-4" style="font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.05em;">
+				<p class="pt-4 mono-ui" style="font-size: 0.65rem; letter-spacing: 0.05em;">
 					LAST UPDATED: JUNE 2026
 				</p>
 			</div>
