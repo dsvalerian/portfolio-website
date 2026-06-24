@@ -2,32 +2,32 @@
 import Layout from "../../layouts/Layout.astro";
 import ContactSection from "../../components/ContactSection.astro";
 import PageHeader from "../../components/PageHeader.astro";
-import Link from "../../components/Link.astro";
+import { Image } from "astro:assets";
+import moveWithTheRhythm from "../../assets/movewiththerhythm.jpg";
+import theSpirit from "../../assets/thespirit.jpg";
+import itMakesMyBodyGo from "../../assets/itmakesmybodygo.jpg";
 
 const releases = [
 	{
-		title: "SIGNAL DECAY",
-		year: "2024",
-		type: "EP",
-		notes: "Generative percussion, feedback loops, tape saturation.",
+		title: "IT MAKES MY BODY GO",
+		year: "2025",
+		type: "SINGLE",
+		artwork: itMakesMyBodyGo,
+		youtubeUrl: "https://www.youtube.com/watch?v=F1XtSCCuqQ4",
 	},
 	{
-		title: "FAULT LINES",
-		year: "2023",
-		type: "LP",
-		notes: "Composed over six months. Coincided with a period of extended on-call shifts. You can probably tell.",
+		title: "THE SPIRIT",
+		year: "2025",
+		type: "SINGLE",
+		artwork: theSpirit,
+		youtubeUrl: "https://www.youtube.com/watch?v=RLw03xDgy6I",
 	},
 	{
-		title: "THRESHOLD",
-		year: "2023",
-		type: "Single",
-		notes: "18 minutes of textural ambience, originally made for a short film score.",
-	},
-	{
-		title: "DEAD CHANNELS",
-		year: "2022",
-		type: "EP",
-		notes: "Industrial club tracks. The loudest thing I've made so far.",
+		title: "MOVE WITH THE RHYTHM",
+		year: "2025",
+		type: "SINGLE",
+		artwork: moveWithTheRhythm,
+		youtubeUrl: "https://www.youtube.com/watch?v=h5UDyQhczdI",
 	},
 ];
 ---
@@ -41,79 +41,69 @@ const releases = [
 			/>
 
 			<!-- Bio -->
-			<div class="grid md:grid-cols-2 gap-16 mb-20">
-				<div class="space-y-5 text-muted-foreground" style="font-size: 0.95rem; line-height: 1.8;">
+			<div class="mb-20 max-w-2xl">
+				<div class="space-y-4 text-muted-foreground" style="font-size: 0.95rem; line-height: 1.8;">
 					<p>
-						I've been making electronic music longer than I've been writing software, though I've only
-						recently started putting things out. It took a while to feel like anything was worth releasing —
-						now I'm making up for lost time.
-					</p>
-					<p>
-						The music sits somewhere between ambient and industrial. I work entirely in Ableton Live, which
-						imposes a certain discipline: you can't blame the gear.
+						Music's always been part of my life — 13 years of piano growing up, then making beats in FL
+						Studio as a kid, hip hop beats in high school, techno experiments in college. After moving to Chicago
+						my taste kept shifting. I spent years listening and experimenting, figuring out what actually moved me, and
+						slowly started making tracks that reflected that. House music — bouncy, soulful, jazzy, old
+						school-ish — kept pulling me back in.
 					</p>
 					<p>
-						Alongside production, I've been learning to DJ — playing mostly at the events I help organise
-						through a local producers' club I'm part of. We run sessions where people bring
-						works-in-progress, tear each other's mixes apart in the best way, and occasionally put on actual
-						shows. I've also collaborated with a few DJs on production work — some of that is reflected
-						<Link href="/projects">in my projects</Link>.
+						I started releasing in 2025. My three tracks don't sound identical to each other and I haven't
+						locked in a signature sound yet, but they all sit somewhere in that same general feeling. Still
+						figuring it out, which is kind of the point.
 					</p>
-				</div>
-
-				<!-- Tools -->
-				<div>
-					<p
-						class="text-muted-foreground uppercase border-b border-border pb-3 mb-6"
-						style="font-family: 'DM Mono', monospace; font-size: 0.7rem; letter-spacing: 0.1em;"
-					>
-						TOOLS
+					<p>
+						I've always been on-and-off with music — I always have other things going on in my life — but I always come back to it. There's always been something
+						in the works, even when I go long periods without releasing anything new. I also picked up DJing, mostly as a way to listen more actively and stay connected to other
+						people making music.
 					</p>
-					<div
-						class="flex items-center gap-3 text-foreground"
-						style="font-family: 'DM Mono', monospace; font-size: 0.8rem;"
-					>
-						<span style="color: var(--primary);">—</span>
-						Ableton Live 12
-					</div>
-					<p class="text-muted-foreground mt-4" style="font-size: 0.8rem; line-height: 1.7;">
-						That's the whole setup. Constraints are useful.
+					<p>
+						I hope you can catch a groove while checking out some of my releases :)
 					</p>
 				</div>
 			</div>
 
 			<!-- Releases -->
 			<div>
-				<div class="border-b border-border pb-3 mb-0">
-					<p
-						class="text-muted-foreground uppercase"
-						style="font-family: 'DM Mono', monospace; font-size: 0.7rem; letter-spacing: 0.1em;"
-					>
-						RELEASES
-					</p>
-				</div>
+				<p
+					class="text-muted-foreground uppercase border-b border-border pb-3 mb-8"
+					style="font-family: 'DM Mono', monospace; font-size: 0.7rem; letter-spacing: 0.1em;"
+				>
+					RELEASES
+				</p>
 
-				<div class="divide-y divide-border">
+				<div class="grid grid-cols-1 sm:grid-cols-3 gap-px border border-border">
 					{
 						releases.map((r, i) => (
-							<div
-								class="py-7 flex flex-col md:flex-row md:items-start gap-4"
-								style={`animation: fade-in 0.4s ease-out both; animation-delay: ${i * 0.07}s;`}
+							<a
+								href={r.youtubeUrl}
+								target="_blank"
+								rel="noopener noreferrer"
+								class="group block border-border hover:border-primary transition-colors"
+								style={`animation: fade-up 0.4s ease-out both; animation-delay: ${i * 0.08}s;`}
 							>
-								<span
-									class="text-muted-foreground shrink-0 w-8"
-									style="font-family: 'DM Mono', monospace; font-size: 0.65rem;"
-								>
-									0{i + 1}
-								</span>
-								<div class="flex-1">
-									<div class="flex items-baseline flex-wrap gap-3 mb-2">
-										<h3
-											class="text-foreground uppercase"
-											style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.4rem; letter-spacing: 0.04em;"
-										>
-											{r.title}
-										</h3>
+								<!-- Artwork -->
+								<div class="aspect-square overflow-hidden bg-card">
+									<Image
+										src={r.artwork}
+										alt={r.title}
+										class="w-full h-full object-cover transition-opacity duration-300 group-hover:opacity-70"
+										loading="lazy"
+									/>
+								</div>
+
+								<!-- Info -->
+								<div class="border-t border-border group-hover:border-primary p-4 transition-colors">
+									<h3
+										class="text-foreground group-hover:text-primary uppercase leading-tight transition-colors"
+										style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.1rem; letter-spacing: 0.04em;"
+									>
+										{r.title}
+									</h3>
+									<div class="flex items-center gap-3 mt-1">
 										<span
 											class="text-muted-foreground"
 											style="font-family: 'DM Mono', monospace; font-size: 0.65rem;"
@@ -121,26 +111,23 @@ const releases = [
 											{r.year}
 										</span>
 										<span
-											class="border border-border text-muted-foreground px-2 py-0.5"
-											style="font-family: 'DM Mono', monospace; font-size: 0.6rem;"
+											class="text-muted-foreground"
+											style="font-family: 'DM Mono', monospace; font-size: 0.65rem;"
 										>
 											{r.type}
 										</span>
+										<span
+											class="ml-auto text-muted-foreground group-hover:text-primary transition-colors"
+											style="font-family: 'DM Mono', monospace; font-size: 0.65rem;"
+										>
+											LISTEN ↗
+										</span>
 									</div>
-									<p class="text-muted-foreground" style="font-size: 0.875rem; line-height: 1.6;">
-										{r.notes}
-									</p>
 								</div>
-							</div>
+							</a>
 						))
 					}
 				</div>
-			</div>
-
-			<div class="mt-16 border-t border-border pt-6">
-				<p class="text-muted-foreground" style="font-family: 'DM Mono', monospace; font-size: 0.7rem;">
-					ALIAS NOT LISTED HERE — ASK DIRECTLY OR FIND IT VIA THE LINK ABOVE.
-				</p>
 			</div>
 
 			<ContactSection />
