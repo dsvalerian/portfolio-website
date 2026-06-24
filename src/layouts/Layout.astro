@@ -5,11 +5,11 @@ interface Props {
 	title?: string;
 }
 
-const { title = "Portfolio" } = Astro.props;
+const { title = "Dmitri Salov" } = Astro.props;
 const pathname = Astro.url.pathname;
 
 const isWorkActive = pathname.startsWith("/projects");
-const isMusicActive = pathname === "/music";
+const isMusicActive = pathname.startsWith("/music");
 ---
 
 <!doctype html>
@@ -72,9 +72,7 @@ const isMusicActive = pathname === "/music";
 
 		<footer class="border-t border-border mt-32">
 			<div class="max-w-7xl mx-auto px-6 py-8 flex items-center justify-between">
-				<span class="text-muted-foreground mono-ui" style="font-size: 0.7rem;">
-					© COPYRIGHT 2026
-				</span>
+				<span class="text-muted-foreground mono-ui" style="font-size: 0.7rem;"> © COPYRIGHT 2026 </span>
 				<a
 					href="/privacy"
 					class="text-muted-foreground hover:text-foreground transition-colors mono-ui"
