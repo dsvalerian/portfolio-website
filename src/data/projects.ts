@@ -17,7 +17,7 @@ export const projects: Project[] = [
 	{
 		slug: "floor-supervisor",
 		number: "01",
-		name: "FLOORSUPERVISOR.COM",
+		name: "FLOOR SUPERVISOR",
 		tagline: "Customizable DJ portfolio and content hub",
 		year: "2026",
 		tags: ["ASTRO", "REACT", "SANITY CMS", "TYPESCRIPT", "CLOUDFLARE"],
@@ -35,7 +35,7 @@ export const projects: Project[] = [
 	{
 		slug: "wedding-website",
 		number: "02",
-		name: "TALITAANDDMITRI.COM",
+		name: "TALITA & DMITRI",
 		tagline: "A post-wedding website with photo galleries, music, and more",
 		year: "2025",
 		tags: ["ASTRO", "TYPESCRIPT", "CLOUDFLARE"],
@@ -51,7 +51,7 @@ export const projects: Project[] = [
 	{
 		slug: "needle-search",
 		number: "03",
-		name: "NEEDLESEARCH.COM",
+		name: "NEEDLE SEARCH",
 		tagline: "Open deck night signups and event platform for a Chicago DJ collective",
 		year: "2025",
 		tags: ["REACT", "SUPABASE", "TYPESCRIPT", "NETLIFY"],
