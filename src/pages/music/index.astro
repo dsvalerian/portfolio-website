@@ -1,0 +1,137 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Button from "../../components/Button.astro";
+import PageHeader from "../../components/PageHeader.astro";
+import { Image } from "astro:assets";
+import moveWithTheRhythm from "../../assets/movewiththerhythm.jpg";
+import theSpirit from "../../assets/thespirit.jpg";
+import itMakesMyBodyGo from "../../assets/itmakesmybodygo.jpg";
+
+const releases = [
+	{
+		title: "IT MAKES MY BODY GO",
+		year: "2025",
+		type: "SINGLE",
+		artwork: itMakesMyBodyGo,
+		youtubeUrl: "https://www.youtube.com/watch?v=F1XtSCCuqQ4",
+	},
+	{
+		title: "THE SPIRIT",
+		year: "2025",
+		type: "SINGLE",
+		artwork: theSpirit,
+		youtubeUrl: "https://www.youtube.com/watch?v=RLw03xDgy6I",
+	},
+	{
+		title: "MOVE WITH THE RHYTHM",
+		year: "2025",
+		type: "SINGLE",
+		artwork: moveWithTheRhythm,
+		youtubeUrl: "https://www.youtube.com/watch?v=h5UDyQhczdI",
+	},
+];
+---
+
+<Layout title="Music — Portfolio">
+	<div class="max-w-7xl mx-auto px-6 py-16">
+		<div>
+			<PageHeader
+				title="MUSIC"
+				link={{ href: "https://linktr.ee/grid.district", label: "linktr.ee/grid.district" }}
+			/>
+
+			<!-- Bio -->
+			<div class="mb-20 max-w-2xl">
+				<div class="space-y-4 text-muted-foreground body-text">
+					<p>
+						Music's always been part of my life — 13 years of piano growing up, then making beats in FL
+						Studio as a kid, hip hop beats in high school, techno experiments in college. After moving to Chicago
+						my taste kept shifting. I spent years listening and experimenting, figuring out what actually moved me, and
+						slowly started making tracks that reflected that. House music — bouncy, soulful, jazzy, old
+						school-ish — kept pulling me back in.
+					</p>
+					<p>
+						I started releasing in 2025. My three tracks don't sound identical to each other and I haven't
+						locked in a signature sound yet, but they all sit somewhere in that same general feeling. Still
+						figuring it out, which is kind of the point.
+					</p>
+					<p>
+						I've always been on-and-off with music — I always have other things going on in my life — but I always come back to it. There's always been something
+						in the works, even when I go long periods without releasing anything new. I also picked up DJing, mostly as a way to listen more actively and stay connected to other
+						people making music.
+					</p>
+					<p>
+						I hope you can catch a groove while checking out some of my releases :)
+					</p>
+				</div>
+			</div>
+
+			<!-- Releases -->
+			<div>
+				<p
+					class="text-muted-foreground uppercase border-b border-border pb-3 mb-8 mono-ui"
+					style="font-size: 0.7rem; letter-spacing: 0.1em;"
+				>
+					RELEASES
+				</p>
+
+				<div class="grid grid-cols-1 sm:grid-cols-3 gap-px border border-border">
+					{
+						releases.map((r, i) => (
+							<a
+								href={r.youtubeUrl}
+								target="_blank"
+								rel="noopener noreferrer"
+								class="group block border-border hover:border-primary transition-colors"
+								style={`animation: fade-up 0.4s ease-out both; animation-delay: ${i * 0.08}s;`}
+							>
+								<!-- Artwork -->
+								<div class="aspect-square overflow-hidden bg-card">
+									<Image
+										src={r.artwork}
+										alt={r.title}
+										class="w-full h-full object-cover transition-opacity duration-300 group-hover:opacity-70"
+										loading="lazy"
+									/>
+								</div>
+
+								<!-- Info -->
+								<div class="border-t border-border group-hover:border-primary p-4 transition-colors">
+									<h3
+										class="text-foreground group-hover:text-primary uppercase leading-tight transition-colors display-medium"
+										style="font-size: 1.1rem; letter-spacing: 0.04em;"
+									>
+										{r.title}
+									</h3>
+									<div class="flex items-center gap-3 mt-1">
+										<span class="text-muted-foreground mono-ui" style="font-size: 0.65rem;">
+											{r.year}
+										</span>
+										<span class="text-muted-foreground mono-ui" style="font-size: 0.65rem;">
+											{r.type}
+										</span>
+										<span
+											class="ml-auto text-muted-foreground group-hover:text-primary transition-colors mono-ui"
+											style="font-size: 0.65rem;"
+										>
+											LISTEN ↗
+										</span>
+									</div>
+								</div>
+							</a>
+						))
+					}
+				</div>
+			</div>
+
+			<div class="mt-16">
+				<Button href="/#contact" class="gap-4 px-8 py-5">
+					<span class="display-medium" style="font-size: 1.3rem; letter-spacing: 0.06em;">
+						GET IN TOUCH
+					</span>
+					<span class="mono-ui" style="font-size: 0.9rem;">→</span>
+				</Button>
+			</div>
+		</div>
+	</div>
+</Layout>

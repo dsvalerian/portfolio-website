@@ -1,0 +1,218 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import SectionLabel from "../../components/SectionLabel.astro";
+import { projects } from "../../data/projects";
+
+export function getStaticPaths() {
+	return projects.map(project => ({
+		params: { slug: project.slug },
+	}));
+}
+
+const { slug } = Astro.params;
+const project = projects.find(p => p.slug === slug)!;
+
+const currentIndex = projects.findIndex(p => p.slug === slug);
+const next = projects[currentIndex + 1] ?? null;
+const prev = projects[currentIndex - 1] ?? null;
+
+const overviewParas = project.overview.split("\n\n");
+const problemParas = project.problem.split("\n\n");
+const solutionParas = project.solution.split("\n\n");
+
+function parseLinks(text: string): string {
+	return text.replace(
+		/\[([^\]]+)\]\(([^)]+)\)/g,
+		'<a href="$2" target="_blank" rel="noopener noreferrer" style="color: var(--primary); font-family: \'DM Mono\', monospace; font-size: 0.75rem; letter-spacing: 0.08em;">$1 ↗</a>',
+	);
+}
+---
+
+<Layout title={`${project.name} — Portfolio`}>
+	<div class="max-w-7xl mx-auto px-6 py-16">
+		<!-- Back -->
+		<div class="mb-12" style="animation: fade-in 0.3s ease-out both;">
+			<a
+				href="/projects"
+				class="text-muted-foreground hover:text-foreground transition-colors mono-ui"
+				style="font-size: 0.7rem; letter-spacing: 0.1em;"
+			>
+				← ALL PROJECTS
+			</a>
+		</div>
+
+		<!-- Header -->
+		<div style="animation: fade-up 0.5s ease-out both;">
+			<span
+				class="text-muted-foreground block mb-3 mono-ui"
+				style="font-size: 0.7rem; letter-spacing: 0.08em;"
+			>
+				{project.number} / {project.year}
+			</span>
+			<h1
+				class="text-foreground uppercase leading-none display-heading"
+				style="font-size: clamp(3rem, 10vw, 6rem);"
+			>
+				{project.name}
+			</h1>
+			<p
+				class="text-muted-foreground mt-3 uppercase display-medium"
+				style="font-size: 1.3rem; letter-spacing: 0.02em;"
+			>
+				{project.tagline}
+			</p>
+
+			{
+				project.links && project.links.length > 0 && (
+					<div class="flex flex-wrap gap-3 mt-6">
+						{project.links.map(link => (
+							<a
+								href={link.url}
+								class="border border-primary text-primary px-5 py-2.5 hover:bg-primary hover:text-primary-foreground transition-colors mono-ui"
+								style="font-size: 0.7rem; letter-spacing: 0.1em;"
+								target="_blank"
+								rel="noopener noreferrer"
+							>
+								{link.label} ↗
+							</a>
+						))}
+					</div>
+				)
+			}
+
+			<!-- Tags -->
+			<div class="flex flex-wrap gap-2 mt-6 mb-6">
+				{
+					project.tags.map(tag => (
+						<span
+							class="border border-border text-muted-foreground px-2 py-1 mono-ui"
+							style="font-size: 0.65rem; letter-spacing: 0.05em;"
+						>
+							{tag}
+						</span>
+					))
+				}
+			</div>
+		</div>
+
+		<!-- TL;DR -->
+		<div class="border-t border-border pt-10 mt-10" style="animation: fade-up 0.5s ease-out 0.1s both;">
+			<SectionLabel label="TL;DR" />
+			<p
+				class="text-foreground mb-8"
+				style="font-size: 1.1rem; line-height: 1.7; max-width: 68ch; font-style: italic;"
+			>
+				{project.brief}
+			</p>
+		</div>
+
+		<!-- Overview -->
+		<div class="border-t border-border pt-10 mt-10" style="animation: fade-up 0.5s ease-out 0.15s both;">
+			<SectionLabel label="OVERVIEW" />
+			<div class="space-y-5">
+				{
+					overviewParas.map(para => (
+						<p
+							class="text-muted-foreground body-text"
+							style="max-width: 68ch;"
+							set:html={parseLinks(para)}
+						/>
+					))
+				}
+			</div>
+		</div>
+
+		<!-- Problem -->
+		<div class="border-t border-border pt-10 mt-10" style="animation: fade-up 0.5s ease-out 0.2s both;">
+			<SectionLabel label="THE PROBLEM" />
+			<div class="space-y-5">
+				{
+					problemParas.map(para => (
+						<p
+							class="text-muted-foreground body-text"
+							style="max-width: 68ch;"
+							set:html={parseLinks(para)}
+						/>
+					))
+				}
+			</div>
+		</div>
+
+		<!-- Solution -->
+		<div class="border-t border-border pt-10 mt-10" style="animation: fade-up 0.5s ease-out 0.25s both;">
+			<SectionLabel label="THE SOLUTION" />
+			<div class="space-y-5">
+				{
+					solutionParas.map(para => (
+						<p
+							class="text-muted-foreground body-text"
+							style="max-width: 68ch;"
+							set:html={parseLinks(para)}
+						/>
+					))
+				}
+			</div>
+		</div>
+
+		<!-- Outcome -->
+		<div class="border-t border-border pt-10 mt-10" style="animation: fade-up 0.5s ease-out 0.35s both;">
+			<SectionLabel label="OUTCOME" />
+			<div class="border-l-2 pl-6" style="border-color: var(--primary);">
+				<p class="text-foreground body-text" style="max-width: 68ch;">
+					{project.outcome}
+				</p>
+			</div>
+		</div>
+
+		<!-- Prev / Next -->
+		<div class="border-t border-border mt-20 pt-10 flex justify-between gap-8">
+			{
+				prev ? (
+					<a
+						href={`/projects/${prev.slug}`}
+						class="group flex flex-col gap-1 hover:text-primary transition-colors"
+					>
+						<span
+							class="text-muted-foreground mono-ui"
+							style="font-size: 0.65rem; letter-spacing: 0.1em;"
+						>
+							← PREVIOUS
+						</span>
+						<span
+							class="text-foreground group-hover:text-primary transition-colors uppercase display-medium"
+							style="font-size: 1.2rem; letter-spacing: 0.03em;"
+						>
+							{prev.name}
+						</span>
+					</a>
+				) : (
+					<div />
+				)
+			}
+
+			{
+				next ? (
+					<a
+						href={`/projects/${next.slug}`}
+						class="group flex flex-col gap-1 items-end hover:text-primary transition-colors"
+					>
+						<span
+							class="text-muted-foreground mono-ui"
+							style="font-size: 0.65rem; letter-spacing: 0.1em;"
+						>
+							NEXT →
+						</span>
+						<span
+							class="text-foreground group-hover:text-primary transition-colors uppercase display-medium"
+							style="font-size: 1.2rem; letter-spacing: 0.03em;"
+						>
+							{next.name}
+						</span>
+					</a>
+				) : (
+					<div />
+				)
+			}
+		</div>
+	</div>
+</Layout>
