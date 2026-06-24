@@ -9,7 +9,7 @@ const { title = "Portfolio" } = Astro.props;
 const pathname = Astro.url.pathname;
 
 const isWorkActive = pathname.startsWith("/projects");
-const isMusicActive = pathname === "/music";
+const isMusicActive = pathname.startsWith("/music");
 ---
 
 <!doctype html>
