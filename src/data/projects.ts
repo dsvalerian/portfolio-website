@@ -47,6 +47,7 @@ export const projects: Project[] = [
 		solution:
 			"I moved storage to [Cloudflare R2](https://developers.cloudflare.com/r2/), which has no egress fees when serving through Cloudflare's network — a natural fit since the site was already deployed to Cloudflare Pages.\n\nFor image delivery, I used Astro's built-in [Image component](https://docs.astro.build/en/guides/images/), which pulls the R2 URLs at build time, optimizes them, and generates srcsets automatically. Lazy loading handles the rest — photos only download as guests scroll into them, which matters a lot at this volume.\n\nFor the layout, I went with a masonry grid so photos of any aspect ratio sit naturally next to each other without cropping or empty space.",
 		outcome: "The site has been up since the wedding. No bandwidth issues, no cost, and everyone got their photos.",
+		links: [{ label: "LIVE SITE", url: "https://talitaanddmitri.com" }],
 	},
 	{
 		slug: "needle-search",
@@ -64,5 +65,6 @@ export const projects: Project[] = [
 			"The site ended up as an event listing and signup platform. The organizer adds a new open deck event by inserting a row into the database — no CMS needed, since they were comfortable enough working directly in Supabase's UI. Each event has a rich text description field so they can format it however they want rather than being locked into a template, plus Google Calendar and iCal links. When an event closes, the signup form disappears automatically.\n\nSignups write directly to the database, which meant I could set up pre-made queries in Supabase so the organizer could pull up a clean list of who signed up for a given event, browse their Instagram profiles, and make decisions from there. Everything updates in real time — no redeployment needed when an event changes.",
 		outcome:
 			"The site ran for about 6 months and hosted 4 events, each with 30+ signups. Eventually Needle Search moved to Google Forms linked from their Instagram posts, and the site went quiet — it's still live, just unused.\n\nLooking back, a simpler stack would have been the smarter call. But this project was where I learned React, TypeScript, and responsive design for the first time. More than that, having to make real decisions for real people — scope, architecture, user experience — made me more confident doing the same thing at work. It pushed me toward roles that involved more client interaction, more ownership, and more of a say in how things got built.",
+		links: [{ label: "LIVE SITE", url: "https://needlesearch.org" }],
 	},
 ];
